@@ -8,11 +8,31 @@ import UIKit
 
 let numbers = [1,1,2,4,4,4,6,6,7,8]
 
-var numbersWithNoDuplicates = [Int]()
-
-// Your code here
+var numbersWithNoDuplicates = Array(Set(numbers)).sorted()
 
 //assert(numbersWithNoDuplicates == [1,2,4,6,7,8], "Was expecting [1,2,4,6,7,8], but got \(numbersWithNoDuplicates)")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Questions Two
 
@@ -20,11 +40,56 @@ var numbersWithNoDuplicates = [Int]()
 
 let scores = [1, 77, 83, 32, 77, 77, 83, 32, 99]
 
-var scoresThatAppearOnce = [Int]()
+var scoresThatAppearOnce: Set<Int> = []
 
-// Your code here
+var visitedNum: [Int] = []
+for num in scores {
+   if !visitedNum.contains(num) {
+       scoresThatAppearOnce.insert(num)
+       visitedNum.append(num)
+   } else {
+       if let index = scoresThatAppearOnce.firstIndex(of: num) {
+           scoresThatAppearOnce.remove(at: index)
+       }
+   }
+}
+print(scoresThatAppearOnce)
 
+assert(scoresThatAppearOnce == [1, 99], "Was expecting [1, 99], but got \(scoresThatAppearOnce)")
+
+
+
+//let scores = [1, 77, 83, 32, 77, 77, 83, 32, 99]
+//
+//var scoresThatAppearOnce: Set<Int> = []
+//
+//var visitedNum: Set<Int> = []
+//
+//for num in scores {
+//    if !visitedNum.contains(num) {
+//        scoresThatAppearOnce.insert(num)
+//        visitedNum.insert(num)
+//    } else {
+//        scoresThatAppearOnce.remove(num)
+//    }
+//}
+//
 //assert(scoresThatAppearOnce == [1, 99], "Was expecting [1, 99], but got \(scoresThatAppearOnce)")
+//print(scoresThatAppearOnce)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Question Three
 
@@ -54,6 +119,26 @@ var arrSix: [Int] = []
 
 //assert(arrSix == [3,4,5], "Was expecting [3,4,5], but got \(arrSix)")
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Question Four
 
 // Given the 4 arrays of Ints below, create a new array, sorted in ascending order, that contains all the values without duplicates.
@@ -68,6 +153,27 @@ var allNumsWithNoDuplicates: [Int] = []
 // Your code here
 
 //assert(allNumsWithNoDuplicates == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "Was expecting [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], but got \([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Question Five
