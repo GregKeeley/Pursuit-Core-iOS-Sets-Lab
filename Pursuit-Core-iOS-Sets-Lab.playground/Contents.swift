@@ -37,45 +37,47 @@ var numbersWithNoDuplicates = Array(Set(numbers)).sorted()
 // Questions Two
 
 // Create a new array scoresThatAppearOnce that has all the elements from scores that appear exactly once.  It should be in the same order as the original.
+//
+//let scores = [1, 77, 83, 32, 77, 77, 83, 32, 99]
+//
+//var scoresThatAppearOnce: Set<Int> = []
+//
+//var visitedNum: [Int] = []
+//for num in scores {
+//   if !visitedNum.contains(num) {
+//       scoresThatAppearOnce.insert(num)
+//       visitedNum.append(num)
+//   } else {
+//       if let index = scoresThatAppearOnce.firstIndex(of: num) {
+//           scoresThatAppearOnce.remove(at: index)
+//       }
+//   }
+//}
+//print(scoresThatAppearOnce)
+//
+//assert(scoresThatAppearOnce == [1, 99], "Was expecting [1, 99], but got \(scoresThatAppearOnce)")
+
+// My first method cheated a bit by changing the array into a set
 
 let scores = [1, 77, 83, 32, 77, 77, 83, 32, 99]
 
 var scoresThatAppearOnce: Set<Int> = []
 
-var visitedNum: [Int] = []
+var visitedNum: Set<Int> = []
+
+
+
 for num in scores {
-   if !visitedNum.contains(num) {
-       scoresThatAppearOnce.insert(num)
-       visitedNum.append(num)
-   } else {
-       if let index = scoresThatAppearOnce.firstIndex(of: num) {
-           scoresThatAppearOnce.remove(at: index)
-       }
-   }
+    if !visitedNum.contains(num) {
+        scoresThatAppearOnce.insert(num)
+        visitedNum.insert(num)
+    } else {
+        scoresThatAppearOnce.remove(num)
+    }
 }
-print(scoresThatAppearOnce)
 
 assert(scoresThatAppearOnce == [1, 99], "Was expecting [1, 99], but got \(scoresThatAppearOnce)")
-
-// My first method cheated a bit by changing the array into a set
-
-//let scores = [1, 77, 83, 32, 77, 77, 83, 32, 99]
-//
-//var scoresThatAppearOnce: Set<Int> = []
-//
-//var visitedNum: Set<Int> = []
-//
-//for num in scores {
-//    if !visitedNum.contains(num) {
-//        scoresThatAppearOnce.insert(num)
-//        visitedNum.insert(num)
-//    } else {
-//        scoresThatAppearOnce.remove(num)
-//    }
-//}
-//
-//assert(scoresThatAppearOnce == [1, 99], "Was expecting [1, 99], but got \(scoresThatAppearOnce)")
-//print(scoresThatAppearOnce)
+print(scoresThatAppearOnce)
 
 
 
@@ -116,9 +118,12 @@ assert(arrThree == [1,2,3,4,5,6,7], "Was expecting [1,2,3,4,5,6,7], but got \(ar
 let arrFour = [1,2,3,4,5]
 let arrFive = [3,4,5,6,7]
 
-var arrSix: [Int] = []
+// var arrSix: [Int] = []
 
-// Your code here
+let arrFourB = Set(arrFour)
+let arrFiveB = Set(arrFive)
+
+var arrSix = arrFourB.intersection(arrFiveB)
 
 //assert(arrSix == [3,4,5], "Was expecting [3,4,5], but got \(arrSix)")
 
@@ -197,12 +202,14 @@ var strThreeIsPangram: Bool = false
 
 //assert(strOneIsPangram == true, "Was expecting true, but got \(strOneIsPangram)")
 //assert(strTwoIsPangram == false, "Was expecting false, but got \(strTwoIsPangram)")
-//assert(strThreeIsPangram == false, “Was expecting false, but got \(strThreeIsPangram)“)
+//assert(strThreeIsPangram == true, “Was expecting false, but got \(strThreeIsPangram)“)
 
 
-
-
-
+for char in strOne {
+    if char.isPunctuation || char.isWhitespace {
+        continue
+    } trimmedStr += String(Char)
+}
 
 
 
