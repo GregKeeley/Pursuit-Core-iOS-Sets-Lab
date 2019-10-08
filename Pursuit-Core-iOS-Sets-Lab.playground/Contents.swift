@@ -57,7 +57,7 @@ print(scoresThatAppearOnce)
 
 assert(scoresThatAppearOnce == [1, 99], "Was expecting [1, 99], but got \(scoresThatAppearOnce)")
 
-
+// My first method cheated a bit by changing the array into a set
 
 //let scores = [1, 77, 83, 32, 77, 77, 83, 32, 99]
 //
@@ -100,11 +100,14 @@ assert(scoresThatAppearOnce == [1, 99], "Was expecting [1, 99], but got \(scores
 let arrOne = [1,2,3,4,5]
 let arrTwo = [3,4,5,6,7]
 
-var arrThree: [Int] = []
 
-// Your code here
 
-//assert(arrThree == [1,2,3,4,5,6,7], "Was expecting [1,2,3,4,5,6,7], but got \(arrThree)")
+let arrOneB = Set(arrOne)
+let arrTwoB = Set(arrTwo)
+
+var arrThree = arrOneB.union(arrTwoB)
+
+assert(arrThree == [1,2,3,4,5,6,7], "Was expecting [1,2,3,4,5,6,7], but got \(arrThree)")
 
 // b.
 
@@ -194,8 +197,7 @@ var strThreeIsPangram: Bool = false
 
 //assert(strOneIsPangram == true, "Was expecting true, but got \(strOneIsPangram)")
 //assert(strTwoIsPangram == false, "Was expecting false, but got \(strTwoIsPangram)")
-//assert(strThreeIsPangram == true, "Was expecting false, but got \(strThreeIsPangram)")
-
+//assert(strThreeIsPangram == false, “Was expecting false, but got \(strThreeIsPangram)“)
 
 
 
