@@ -10,7 +10,7 @@ let numbers = [1,1,2,4,4,4,6,6,7,8]
 
 var numbersWithNoDuplicates = Array(Set(numbers)).sorted()
 
-//assert(numbersWithNoDuplicates == [1,2,4,6,7,8], "Was expecting [1,2,4,6,7,8], but got \(numbersWithNoDuplicates)")
+assert(numbersWithNoDuplicates == [1,2,4,6,7,8], "Was expecting [1,2,4,6,7,8], but got \(numbersWithNoDuplicates)")
 
 
 
@@ -125,7 +125,7 @@ let arrFiveB = Set(arrFive)
 
 var arrSix = arrFourB.intersection(arrFiveB)
 
-//assert(arrSix == [3,4,5], "Was expecting [3,4,5], but got \(arrSix)")
+assert(arrSix == [3,4,5], "Was expecting [3,4,5], but got \(arrSix)")
 
 
 
@@ -157,10 +157,31 @@ let numsThree = [5, 6, 7, 8, 9, 10, 11, 12]
 let numsFour = [1, 3, 4, 5, 6, 7, 9]
 
 var allNumsWithNoDuplicates: [Int] = []
+var uniquesnums: Set<Int> = []
 
-// Your code here
-
-//assert(allNumsWithNoDuplicates == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "Was expecting [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], but got \([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])")
+for num in numsOne {
+    if !allNumsWithNoDuplicates.contains(num) {
+        allNumsWithNoDuplicates.append(num)
+    }
+}
+for num in numsTwo {
+    if !allNumsWithNoDuplicates.contains(num) {
+        allNumsWithNoDuplicates.append(num)
+    }
+}
+for num in numsThree {
+    if !allNumsWithNoDuplicates.contains(num) {
+        allNumsWithNoDuplicates.append(num)
+    }
+}
+for num in numsFour {
+    if !allNumsWithNoDuplicates.contains(num) {
+        allNumsWithNoDuplicates.append(num)
+    }
+}
+allNumsWithNoDuplicates = allNumsWithNoDuplicates.sorted()
+print(allNumsWithNoDuplicates)
+assert(allNumsWithNoDuplicates == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "Was expecting [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], but got \([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])")
 
 
 
@@ -198,18 +219,37 @@ var strOneIsPangram: Bool = false
 var strTwoIsPangram: Bool = false
 var strThreeIsPangram: Bool = false
 
-// Your code here
+let alphabets: Set<Character> = Set("abcdefghijklmnopqrstuvwxyz") //Defining alphabet
 
-//assert(strOneIsPangram == true, "Was expecting true, but got \(strOneIsPangram)")
-//assert(strTwoIsPangram == false, "Was expecting false, but got \(strTwoIsPangram)")
-//assert(strThreeIsPangram == true, “Was expecting false, but got \(strThreeIsPangram)“)
+var trimmedStrOne = ""
+for char in strOne.lowercased() {
+    if alphabets.contains(char) {
+    trimmedStrOne += String(char)
+    }
+}
+strOneIsPangram = Set(trimmedStrOne) == alphabets
 
 
-for char in strOne {
-    if char.isPunctuation || char.isWhitespace {
-        continue
-    } trimmedStr += String(Char)
+var trimmedStrTwo = ""
+for char in strTwo.lowercased() {
+    if alphabets.contains(char) {
+        trimmedStrOne += String(char)
+    }
+}
+strTwoIsPangram = Set(trimmedStrTwo) == alphabets
+
+var trimmedStrThree = ""
+for char in strThree.lowercased() {
+    if alphabets.contains(char) {
+       trimmedStrThree += String(char)
+    }
 }
 
+strThreeIsPangram = Set(trimmedStrThree) == alphabets
+print(trimmedStrThree.sorted())
+
+assert(strOneIsPangram == true, "Was expecting true, but got \(strOneIsPangram)")
+assert(strTwoIsPangram == false, "Was expecting false, but got \(strTwoIsPangram)")
+assert(strThreeIsPangram == true, "Was expecting true, but got \(strThreeIsPangram)")
 
 
